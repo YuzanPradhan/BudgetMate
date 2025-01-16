@@ -1,0 +1,114 @@
+﻿@page "/dashboard"
+
+<body>
+<nav class="sidebar">
+    <ul class="sidebar-nav">
+        <li><a href="/dashboard" class="active"> Dashboard</a></li>
+        <li><a href="/transactions">All Transactions</a></li>
+        <li><a href="/tags">Manage Tags</a></li>
+        <li><a href="/debts">Manage Debts</a></li>
+    </ul>
+    <a href="/" class="logout-btn">Logout</a>
+</nav>
+
+<main class="dashboard-container">
+    <header class="dashboard-header">
+        <h1>Dashboard</h1>
+        <div class="header-actions">
+            <button class="add-transaction-btn">
+                <a href="/transcationForm"> Add Transaction </a>
+            </button>
+        </div>
+    </header>
+
+    <!-- Summary Stats -->
+    <div class="stats-grid">
+        <div class="stat-card inflow">
+            <h3>Total Inflow</h3>
+            <div class="amount">@TotalCredit</div>
+        </div>
+        <div class="stat-card outflow">
+            <h3>Cash Outflow</h3>
+            <div class="amount">@TotalDebit</div>
+        </div>
+        <div class="stat-card due-debt">
+            <h3>Due Debt</h3>
+            <div class="amount">@DueDebt</div>
+        </div>
+        <div class="stat-card cleared-debt">
+            <h3>Cleared Debt</h3>
+            <div class="amount">@ClearedDebt</div>
+        </div>
+    </div>
+
+    <div class="transaction-highlights">
+        <section class="highest-transactions">
+            <h2 class="transaction-table-header">Highest Transactions</h2>
+            <table class="transaction-highlight-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Transaction Amount</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                @if (HighestTransactions != null && HighestTransactions.Any())
+                {
+                    @foreach (var transaction in HighestTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Id</td>
+                            <td>@transaction.TransactionAmount</td>
+                            <td>@transaction.Type</td>
+                            <td>@transaction.Date.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">No highest transactions available.</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </section>
+
+        <section class="lowest-transactions">
+            <h2 class="transaction-table-header">Lowest Transactions</h2>
+            <table class="transaction-highlight-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Transaction Amount</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                @if (LowestTransactions != null && LowestTransactions.Any())
+                {
+                    @foreach (var transaction in LowestTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Id</td>
+                            <td>@transaction.TransactionAmount</td>
+                            <td>@transaction.Type</td>
+                            <td>@transaction.Date.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">No lowest transactions available.</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>
+</body>

@@ -1,0 +1,82 @@
+﻿@page "/Tags";
+
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul>
+            <h1>BudgetMate</h1>
+            <li>
+                <a href="/dashboard" >
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/transactions">
+                    Transactions
+                </a>
+            </li>
+            <li>
+                <a href="/debts">
+                    Debt Management
+                </a>
+            </li>
+            <li>
+                <a href="/tags" class="active">
+                    Tags
+                </a>
+            </li>
+            <li>
+                <a href="/settings">
+                    Settings
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<main class="tags-container">
+    <h1>Manage Tags</h1>
+
+    <div class="tag-form">
+        <form @onsubmit="HandleSubmit">
+            <div class="form-group">
+                <label for="tagName">Tag Name</label>
+                <input type="text" id="tagName" @bind="newTag.Name" placeholder="Enter tag name" required />
+            </div>
+            <button type="submit" class="submit-button">Add Tag</button>
+        </form>
+    </div>
+
+    <div class="tags-table">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tag Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Tagss != null && Tagss.Any())
+            {
+                @foreach (var tag in Tagss)
+                {
+                    <tr>
+                        <td>@tag.Id</td>
+                        <td>@tag.Name</td>
+                        <td>
+                            <button class="action-btn delete-btn" @onclick="() => DeleteTag(tag.Id)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">No tags available.</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</main>
+

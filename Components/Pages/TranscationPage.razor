@@ -1,0 +1,78 @@
+﻿@page "/transactions"
+
+<body>
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <h1>BudgetMate</h1>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/transactions" class="active">Transactions</a></li>
+            <li><a href="/debts">Debt Management</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+</div>
+
+<main class="transactions-container">
+    <header class="transactions-header">
+        <h1>All Transactions</h1>
+        <div class="controls">
+            <input type="text" placeholder="Search by Source..." @bind="SearchQuery" @bind:event="oninput" class="search-input" />
+            <label>
+                From:
+                <input type="date" @bind="StartDate" />
+            </label>
+            <label>
+                To:
+                <input type="date" @bind="EndDate" />
+            </label>
+            <select @bind="TransactionType" class="type-filter">
+                <option value="">All Types</option>
+                <option value="Credit">Credit</option>
+                <option value="Debit">Debit</option>
+            </select>
+            <button class="sort-btn" @onclick="FilterTransactions">Apply Filters</button>
+        </div>
+    </header>
+
+    <div class="transactions-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Source</th>
+                    <th>Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (FilteredTransactions != null && FilteredTransactions.Any())
+                {
+                    @foreach (var transaction in FilteredTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Id</td>
+                            <td>@transaction.Type</td>
+                            <td>@transaction.Date.ToString("yyyy-MM-dd")</td>
+                            <td>@string.Join(", ", transaction.Source)</td>
+                            <td>@transaction.TransactionAmount</td>
+                            <td>
+                                <button class="action-btn edit-btn" @onclick="() => EditTransaction(transaction.Id)">Edit</button>
+                                <button class="action-btn delete-btn" @onclick="() => DeleteTransaction(transaction.Id)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">No transactions match your filters.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>

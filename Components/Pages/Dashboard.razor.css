@@ -1,0 +1,249 @@
+﻿.sidebar {
+  width: 200px;
+  background-color: white;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem;
+  border-right: 1px solid #e2e8f0;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background-color: #f3f4f6;
+  color: #1a56db;
+}
+
+.sidebar-nav a.active {
+  font-weight: 500;
+}
+
+.dashboard-container {
+  margin-left: 200px;
+  padding: 2rem;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.25rem;
+  color: #1a56db;
+  font-weight: 500;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.total-inflow .amount {
+  color: #1a56db;
+}
+
+.total-outflow .amount {
+  color: #dc2626;
+}
+
+.pending-debts .amount {
+  color: #d97706;
+}
+
+.cleared-debts .amount {
+  color: #059669;
+}
+
+.chart-section {
+  margin-bottom: 3rem;
+}
+
+.pie-chart {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.transactions-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.transactions-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transactions-table td {
+  padding: 0.75rem 1rem;
+  color: #111827;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transactions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.transactions-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.user-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-menu button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 64px;
+  }
+
+  .dashboard-container {
+    margin-left: 64px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.transaction-highlights {
+  display: grid;
+  gap: 2rem;
+}
+
+.highest-transactions,
+.lowest-transactions {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-table-header {
+  color: #2d3748;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.transaction-highlight-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.transaction-highlight-table th,
+.transaction-highlight-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.transaction-highlight-table th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.transaction-highlight-table tr:last-child td {
+  border-bottom: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+}

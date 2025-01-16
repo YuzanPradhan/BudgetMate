@@ -1,0 +1,45 @@
+﻿@page "/transactionForm/edit/{TransactionId:int}"
+
+<main class="transaction-form-container">
+    <h2>Edit Transaction</h2>
+
+    <div class="transaction-form">
+        <a href="/transactions" class="back-button">&#8592; Back</a>
+        <form @onsubmit="HandleSubmit">
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" @bind="transaction.TransactionAmount" placeholder="Enter amount" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" @bind="transaction.Date" required>
+            </div>
+            <div class="form-group transaction-type">
+                <label>Transaction Type</label>
+                <select @bind="transaction.Type">
+                    <option value="----" disabled>Select transaction type</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Debit">Debit</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="source">Source</label>
+                <select id="source" multiple @onchange="HandleSourceChange">
+                    @foreach (var tag in Tags)
+                    {
+                        <option value="@tag.Name" selected="@(transaction.Source.Contains(tag.Name))">@tag.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="note">Note</label>
+                <textarea id="note" @bind="transaction.Note" placeholder="Enter note"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-button">Save Changes</button>
+                <button type="button" class="cancel-button" @onclick="CancelEdit">Cancel</button>
+            </div>
+        </form>
+    </div>
+</main>
+

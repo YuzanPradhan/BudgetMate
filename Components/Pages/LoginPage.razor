@@ -1,0 +1,38 @@
+﻿@page "/"
+<body>
+<div class="container">
+    <form class="login-form" @onsubmit="HandleLogin">
+        <h1>Welcome Back</h1>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" @bind="Users.Username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" @bind="Users.Password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+            <label>Select Currency</label>
+            <div class="currency-options">
+                <div class="currency-option">
+                    <input type="radio" id="usd"  value="USD" required>
+                    <label for="usd">USD</label>
+                </div>
+                <div class="currency-option">
+                    <input type="radio" id="eur" value="EUR">
+                    <label for="eur">EUR</label>
+                </div>
+                <div class="currency-option">
+                    <input type="radio" id="nrs"  value="NRS">
+                    <label for="nrs">NRS</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p class="error">@errorMessage</p>
+    }
+</div>
+</body>

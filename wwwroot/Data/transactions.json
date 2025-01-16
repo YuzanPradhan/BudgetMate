@@ -1,0 +1,33 @@
+[
+  {
+    "Id": 1,
+    "TransactionAmount": 1536,
+    "Date": "2025-01-14",
+    "Type": "Debit",
+    "Source": [
+      "Salary",
+      "Groceries"
+    ],
+    "Note": "eee"
+  },
+  {
+    "Id": 3,
+    "TransactionAmount": 500,
+    "Date": "2025-01-10",
+    "Type": "Credit",
+    "Source": [
+      "Personal Loan"
+    ],
+    "Note": "Loan payment to John"
+  },
+  {
+    "Id": 5,
+    "TransactionAmount": 30000,
+    "Date": "0001-01-17",
+    "Type": "Credit",
+    "Source": [
+      "Groceries"
+    ],
+    "Note": "for grocesseries"
+  }
+]
