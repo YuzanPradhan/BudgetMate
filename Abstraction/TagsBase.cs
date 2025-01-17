@@ -5,8 +5,9 @@ namespace BudgetMate.Abstraction;
 
 public abstract class TagsBase
 {
-    public static readonly string FilePath = Path.Combine("C:\\Users\\YUZAN\\Desktop\\_\\Coursework\\.net\\BudgetMate\\wwwroot", "Data", "tags.json");
-    
+    public static readonly string FilePath = 
+    Path.Combine(AppContext.BaseDirectory, "wwwroot", "Data", "tags.json");
+
     protected List<Tag> LoadTags()
     {
         if (!File.Exists(FilePath)) return new List<Tag>();

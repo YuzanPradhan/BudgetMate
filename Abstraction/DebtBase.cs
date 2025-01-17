@@ -6,8 +6,8 @@ namespace BudgetMate.Abstraction;
 public abstract class DebtBase
 {
     private static readonly string FilePath =
-        Path.Combine("C:\\Users\\YUZAN\\Desktop\\_\\Coursework\\.net\\BudgetMate\\wwwroot", "Data",
-            "debts.json");
+    Path.Combine(AppContext.BaseDirectory, "wwwroot", "Data", "debts.json");
+
 
     protected List<Debt> LoadDebts()
     {

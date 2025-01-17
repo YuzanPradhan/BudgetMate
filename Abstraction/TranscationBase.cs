@@ -8,7 +8,8 @@ namespace BudgetMate.Abstraction;
 
 public abstract class TranscationBase
 {
-    public readonly string FilePath = Path.Combine("C:\\Users\\YUZAN\\Desktop\\_\\Coursework\\.net\\BudgetMate\\wwwroot", "Data", "transactions.json");
+    public readonly string FilePath = 
+    Path.Combine(AppContext.BaseDirectory, "wwwroot", "Data", "transactions.json");
 
     protected List<Transaction> loadAllTransactions()
     {

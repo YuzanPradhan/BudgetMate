@@ -25,7 +25,7 @@ namespace BudgetMate
             
             builder.Services.AddMudServices();
             builder.Services.AddMauiBlazorWebView();
-
+            
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
