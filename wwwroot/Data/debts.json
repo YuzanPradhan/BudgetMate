@@ -20,31 +20,15 @@
     "Amount": 250,
     "Date": "2025-01-20",
     "Lender": "Nishant",
-    "Status": "Pending",
+    "Status": "Paid",
     "Note": "Short-term loan for utilities"
   },
   {
     "Id": 4,
-    "Amount": 5666,
-    "Date": "2025-01-13",
-    "Lender": "Ram",
+    "Amount": 12,
+    "Date": "0001-01-24",
+    "Lender": "goku",
     "Status": "Pending",
-    "Note": "tttt"
-  },
-  {
-    "Id": 5,
-    "Amount": 0,
-    "Date": "0001-01-01",
-    "Lender": "ewf",
-    "Status": "Pending",
-    "Note": null
-  },
-  {
-    "Id": 6,
-    "Amount": 2,
-    "Date": "0001-01-01",
-    "Lender": "wef",
-    "Status": "Pending",
-    "Note": null
+    "Note": "test"
   }
 ]

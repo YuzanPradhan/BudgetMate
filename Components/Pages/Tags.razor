@@ -2,48 +2,36 @@
 
 <div class="sidebar">
     <nav class="sidebar-nav">
+        <h1 class="sidebar-title">BudgetMate</h1>
         <ul>
-            <h1>BudgetMate</h1>
-            <li>
-                <a href="/dashboard" >
-                    Dashboard
-                </a>
-            </li>
-            <li>
-                <a href="/transactions">
-                    Transactions
-                </a>
-            </li>
-            <li>
-                <a href="/debts">
-                    Debt Management
-                </a>
-            </li>
-            <li>
-                <a href="/tags" class="active">
-                    Tags
-                </a>
-            </li>
-            <li>
-                <a href="/settings">
-                    Settings
-                </a>
-            </li>
+            <li><a href="/dashboard" > Dashboard</a></li>
+            <li><a href="/transactions">All Transactions</a></li>
+            <li><a href="/transcationForm"> Add Transaction</a></li>
+            <li><a href="/tags" class="active">Manage Tags</a></li>
+            <li><a href="/debts">Manage Debts</a></li>
         </ul>
     </nav>
+    <a href="/" class="logout-btn">Logout</a>
 </div>
+
 
 <main class="tags-container">
     <h1>Manage Tags</h1>
 
-    <div class="tag-form">
-        <form @onsubmit="HandleSubmit">
-            <div class="form-group">
-                <label for="tagName">Tag Name</label>
-                <input type="text" id="tagName" @bind="newTag.Name" placeholder="Enter tag name" required />
-            </div>
-            <button type="submit" class="submit-button">Add Tag</button>
-        </form>
+    <div class="minimizable">
+        <div class="minimizable-header" @onclick="ToggleFormVisibility">
+            <h2>Tag Form</h2>
+            <button type="button" class="toggle-button">@((IsFormVisible ? "Hide" : "Show"))</button>
+        </div>
+        <div class="minimizable-content @(IsFormVisible ? "visible" : "")">
+            <form @onsubmit="HandleSubmit">
+                <div class="form-group">
+                    <label for="tagName">Tag Name</label>
+                    <input type="text" id="tagName" @bind="newTag.Name" placeholder="Enter tag name" required />
+                </div>
+                <button type="submit" class="submit-button">Add Tag</button>
+            </form>
+        </div>
     </div>
 
     <div class="tags-table">

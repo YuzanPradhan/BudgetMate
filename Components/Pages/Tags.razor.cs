@@ -8,6 +8,8 @@ public partial class Tags : ComponentBase
     private List<Tag> Tagss { get; set; }
     private Tag newTag = new();
     private int nextId = 1;
+    private bool IsFormVisible { get; set; } = false; 
+
 
     protected override void OnInitialized()
     {
@@ -31,5 +33,10 @@ public partial class Tags : ComponentBase
     {
         TagsService.DeleteTag(id);
         Tagss = TagsService.GetTags();
+    }
+
+    private void ToggleFormVisibility()
+    {
+        IsFormVisible = !IsFormVisible;
     }
 }

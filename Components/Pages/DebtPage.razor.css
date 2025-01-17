@@ -2,13 +2,43 @@
   width: 200px;
   background-color: #f8fafc;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   left: 0;
   top: 0;
-  padding: 1.5rem;
-  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-right: 1px solid #e2e8f0;
 }
 
+.sidebar-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
 .sidebar h1 {
   font-size: 1.5rem;
   color: #1a56db;
@@ -16,33 +46,39 @@
   font-weight: 600;
 }
 
-.sidebar-nav {
-  list-style: none;
-  padding: 0;
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background-color: #f3f4f6;
+  color: #1a56db;
 }
 
-.sidebar-nav li {
-  margin-bottom: 0.75rem;
+.sidebar-nav a.active {
+  font-weight: 500;
 }
 
-.sidebar-nav a {
+.logout-btn {
   display: block;
-  padding: 0.5rem;
+  margin-top: auto; /* Pushes the logout button to the bottom */
+  padding: 0.75rem 1rem;
   color: #4b5563;
   text-decoration: none;
   font-size: 0.875rem;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  text-align: center;
+  transition: all 0.2s ease;
 }
 
-.sidebar-nav a:hover,
-.sidebar-nav a.active {
+.logout-btn:hover {
+  background-color: #f3f4f6;
   color: #1a56db;
 }
 
 /* Debt Page Container */
 .debt-page-container {
-  margin-left: 250px;
+  margin-left: 200px;
   padding: 2rem;
-  background-color: #f7fafc;
+  background-color: white;
   min-height: 100vh;
 }
 
@@ -53,58 +89,6 @@
   font-weight: bold;
 }
 
-/* Debt Form Styles */
-.debt-form {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.debt-form .form-group {
-  margin-bottom: 1rem;
-}
-
-.debt-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #4a5568;
-}
-
-.debt-form input,
-.debt-form select,
-.debt-form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #cbd5e0;
-  border-radius: 8px;
-  font-size: 1rem;
-  box-sizing: border-box;
-  background: white;
-}
-
-.debt-form textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.debt-form .submit-button {
-  background-color: #3182ce;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.debt-form .submit-button:hover {
-  background-color: #2b6cb0;
-}
 
 /* Debt Table Styles */
 .debts-table {
@@ -246,4 +230,226 @@ tbody tr:hover {
 
 .sort-btn:hover {
   background-color: #5a67d8;
+}
+
+
+.minimizable {
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.minimizable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.minimizable-header h3 {
+  font-size: 1.25rem;
+  color: #2d3748;
+  font-weight: 600;
+  margin: 0;
+}
+
+.minimizable-content {
+  display: none; /* Hidden by default */
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.minimizable-content.visible {
+  display: block; /* Display when toggled */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.toggle-button {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: #3182ce;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.toggle-button:hover {
+  color: #2b6cb0;
+}
+/* Container for the Minimizable Form */
+.minimizable {
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+/* Header for the Minimizable Section */
+.minimizable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.minimizable-header h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin: 0;
+}
+
+.toggle-button {
+  font-size: 0.875rem;
+  background: none;
+  border: none;
+  color: #3182ce;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.toggle-button:hover {
+  color: #2b6cb0;
+}
+
+/* Content Visibility */
+.minimizable-content {
+  display: none; /* Hidden by default */
+  margin-top: 1rem;
+}
+
+.minimizable-content.visible {
+  display: block; /* Display when toggled */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.debt-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  display: block; /* Ensure form is displayed */
+}
+
+.debt-form.hidden {
+  display: none; /* Hide form when toggled */
+}
+
+.minimizable-content {
+  display: none;
+}
+
+.minimizable-content.visible {
+  display: block;
+}
+
+.debt-form label {
+  font-size: 1rem;
+  color: #4a5568;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.debt-form input,
+.debt-form select,
+.debt-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  box-sizing: border-box;
+}
+
+.debt-form .submit-button {
+  background-color: #3182ce;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.debt-form .submit-button:hover {
+  background-color: #2b6cb0;
+}
+
+
+.toggle-status-btn {
+  padding: 0.5rem 1rem;
+  background-color: #667eea;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-status-btn:hover {
+  background-color: #5a67d8;
+  transform: scale(1.05);
+}
+
+.toggle-status-btn:active {
+  background-color: #4c51bf;
+  transform: scale(1);
+}
+
+.toggle-status-btn.paid {
+  background-color: #38a169; /* Green for "Paid" */
+}
+
+.toggle-status-btn.pending {
+  background-color: #e53e3e; /* Red for "Pending" */
+}
+
+.toggle-status-btn.paid:hover {
+  background-color: #2f855a;
+}
+
+.toggle-status-btn.pending:hover {
+  background-color: #c53030;
 }

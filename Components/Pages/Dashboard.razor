@@ -1,24 +1,25 @@
 ﻿@page "/dashboard"
 
 <body>
-<nav class="sidebar">
-    <ul class="sidebar-nav">
-        <li><a href="/dashboard" class="active"> Dashboard</a></li>
-        <li><a href="/transactions">All Transactions</a></li>
-        <li><a href="/tags">Manage Tags</a></li>
-        <li><a href="/debts">Manage Debts</a></li>
-    </ul>
+
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <h1 class="sidebar-title">BudgetMate</h1>
+        <ul>
+            <li><a href="/dashboard" class="active"> Dashboard</a></li>
+            <li><a href="/transactions">All Transactions</a></li>
+            <li><a href="/transcationForm"> Add Transaction</a></li>
+            <li><a href="/tags">Manage Tags</a></li>
+            <li><a href="/debts">Manage Debts</a></li>
+        </ul>
+    </nav>
     <a href="/" class="logout-btn">Logout</a>
-</nav>
+</div>
+
 
 <main class="dashboard-container">
     <header class="dashboard-header">
         <h1>Dashboard</h1>
-        <div class="header-actions">
-            <button class="add-transaction-btn">
-                <a href="/transcationForm"> Add Transaction </a>
-            </button>
-        </div>
     </header>
 
     <!-- Summary Stats -->

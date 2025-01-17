@@ -2,13 +2,43 @@
   width: 200px;
   background-color: #f8fafc;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   left: 0;
   top: 0;
-  padding: 1.5rem;
-  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-right: 1px solid #e2e8f0;
 }
 
+.sidebar-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
 .sidebar h1 {
   font-size: 1.5rem;
   color: #1a56db;
@@ -16,93 +46,251 @@
   font-weight: 600;
 }
 
-.sidebar-nav {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar-nav li {
-  margin-bottom: 0.75rem;
-}
-
-.sidebar-nav a {
-  display: block;
-  padding: 0.5rem;
-  color: #4b5563;
-  text-decoration: none;
-  font-size: 0.875rem;
-}
-
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
+  background-color: #f3f4f6;
   color: #1a56db;
 }
 
+.sidebar-nav a.active {
+  font-weight: 500;
+}
+
+.logout-btn {
+  display: block;
+  margin-top: auto; /* Pushes the logout button to the bottom */
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f3f4f6;
+  color: #1a56db;
+}
+
+
 .tags-container {
-  margin-left: 250px;
+  margin-left: 200px;
   padding: 2rem;
-  background-color: #f7fafc;
+  background-color: white;
   min-height: 100vh;
+}
+
+.tags-container h1 {
+  font-size: 2rem;
+  color: #1a202c;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .tag-form {
   max-width: 600px;
-  margin: 0 auto 2rem;
+  width: 100%;
   background: white;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .tag-form label {
   display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
   margin-bottom: 0.5rem;
-  font-weight: bold;
 }
 
 .tag-form input {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #cbd5e0;
-  border-radius: 8px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: #4a5568;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
-  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.tag-form input:focus {
+  box-shadow: 0 4px 8px rgba(66, 153, 225, 0.5);
+  outline: none;
+}
+
+.tag-form .submit-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.tag-form .submit-button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .tags-table {
+  width: 100%;
   background: white;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .tags-table table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.tags-table th,
-.tags-table td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.875rem;
 }
 
 .tags-table th {
   background-color: #f7fafc;
-  color: #4a5568;
+  font-size: 0.9rem;
+  color: #2d3748;
   font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid #e2e8f0;
 }
 
-.tags-table .action-btn.delete-btn {
-  background-color: #e53e3e;
-  color: white;
+.tags-table td {
+  padding: 0.75rem;
+  color: #4a5568;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tags-table tr:hover td {
+  background-color: #f1f5f9;
+}
+
+.tags-table .delete-btn {
   padding: 0.5rem 1rem;
+  background-color: #ef4444;
+  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tags-table .action-btn.delete-btn:hover {
-  background-color: #c50330;
+.tags-table .delete-btn:hover {
+  background-color: #dc2626;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.minimizable {
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.minimizable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.minimizable-header h2 {
+  font-size: 1.25rem;
+  color: #2d3748;
+  font-weight: 600;
+  margin: 0;
+}
+
+.minimizable-content {
+  display: none; /* Hidden by default */
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.minimizable-content.visible {
+  display: block; /* Display when toggled */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.toggle-button {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: #3182ce;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.toggle-button:hover {
+  color: #2b6cb0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

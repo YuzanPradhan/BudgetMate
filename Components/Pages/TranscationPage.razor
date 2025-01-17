@@ -1,17 +1,21 @@
 ﻿@page "/transactions"
 
 <body>
+
 <div class="sidebar">
     <nav class="sidebar-nav">
-        <h1>BudgetMate</h1>
+        <h1 class="sidebar-title">BudgetMate</h1>
         <ul>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/transactions" class="active">Transactions</a></li>
-            <li><a href="/debts">Debt Management</a></li>
-            <li><a href="/settings">Settings</a></li>
+            <li><a href="/dashboard" > Dashboard</a></li>
+            <li><a href="/transactions" class="active">All Transactions</a></li>
+            <li><a href="/transcationForm"> Add Transaction</a></li>
+            <li><a href="/tags">Manage Tags</a></li>
+            <li><a href="/debts">Manage Debts</a></li>
         </ul>
     </nav>
+    <a href="/" class="logout-btn">Logout</a>
 </div>
+
 
 <main class="transactions-container">
     <header class="transactions-header">
@@ -32,6 +36,7 @@
                 <option value="Debit">Debit</option>
             </select>
             <button class="sort-btn" @onclick="FilterTransactions">Apply Filters</button>
+            <button class="export-btn" @onclick="ExportToJson">Export to JSON</button>
         </div>
     </header>
 

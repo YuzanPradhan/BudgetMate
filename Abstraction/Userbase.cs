@@ -5,16 +5,16 @@ namespace BudgetMate.Abstraction;
 
 public class Userbase
 {
-    private static string FilePath = Path.Combine(FileSystem.AppDataDirectory, "user.json");
+    private static string _filePath = Path.Combine(FileSystem.AppDataDirectory, "user.json");
     protected List<User> LoadUser()
     {
-        if (!File.Exists(FilePath)) return new List<User>();
-        var json = File.ReadAllText(FilePath);
+        if (!File.Exists(_filePath)) return new List<User>();
+        var json = File.ReadAllText(_filePath);
         return JsonSerializer.Deserialize<List<User>>(json) ?? new List<User>();
     }
     protected void SaveUser(List<User> user)
     {
         var json = JsonSerializer.Serialize(LoadUser());
-        File.WriteAllText(FilePath, json);
+        File.WriteAllText(_filePath, json);
     }
 }

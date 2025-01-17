@@ -16,33 +16,27 @@ public partial class DebtPage : ComponentBase
     }
     private string _searchQuery = string.Empty;
 
-    private List<Debt> FilteredDebts = new(); // Filtered list based on the search query
-    private Debt newDebt = new() { Status = "Pending" };
-    private List<Debt> Debts = new();
+    private List<Debt> _filteredDebts = new(); // Filtered list based on the search query
+    private Debt _newDebt = new() { Status = "Pending" };
+    private List<Debt> _debts = new();
 
     protected override void OnInitialized()
     {
-        Debts = DebtService.GetDebts();
-        FilteredDebts = Debts;
+        _debts = DebtService.GetDebts();
+        _filteredDebts = _debts;
     }
 
-    private void HandleSubmit()
-    {
-        DebtService.AddDebt(newDebt);
-        Debts = DebtService.GetDebts(); // Reload debts
-        FilterTable(); // Refresh the filtered list
-        newDebt = new() { Status = "Pending" }; // Reset form
-    }
+   
 
     private void FilterTable()
     {
         if (string.IsNullOrWhiteSpace(SearchQuery))
         {
-            FilteredDebts = Debts; // Show all debts if search query is empty
+            _filteredDebts = _debts; // Show all debts if search query is empty
         }
         else
         {
-            FilteredDebts = Debts.Where(debt =>
+            _filteredDebts = _debts.Where(debt =>
                 debt.Lender.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
                 debt.Status.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
                 (debt.Note != null && debt.Note.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)) ||
@@ -55,11 +49,11 @@ public partial class DebtPage : ComponentBase
     {
         if (ascending)
         {
-            FilteredDebts = FilteredDebts.OrderBy(debt => debt.Date).ToList();
+            _filteredDebts = _filteredDebts.OrderBy(debt => debt.Date).ToList();
         }
         else
         {
-            FilteredDebts = FilteredDebts.OrderByDescending(debt => debt.Date).ToList();
+            _filteredDebts = _filteredDebts.OrderByDescending(debt => debt.Date).ToList();
         }
     }
 
@@ -67,22 +61,39 @@ public partial class DebtPage : ComponentBase
     {
         if (ascending)
         {
-            FilteredDebts = FilteredDebts.OrderBy(debt => debt.Status).ToList();
+            _filteredDebts = _filteredDebts.OrderBy(debt => debt.Status).ToList();
         }
         else
         {
-            FilteredDebts = FilteredDebts.OrderByDescending(debt => debt.Status).ToList();
+            _filteredDebts = _filteredDebts.OrderByDescending(debt => debt.Status).ToList();
         }
     }
     private void ToggleStatus(Debt debt)
     {
         debt.Status = debt.Status == "Pending" ? "Paid" : "Pending";
-        var index = Debts.FindIndex(d => d.Id == debt.Id);
+        var index = _debts.FindIndex(d => d.Id == debt.Id);
         if (index != -1)
         {
-            Debts[index] = debt;
-            DebtService.SaveUpdatedDept(Debts); // Persist changes to storage
+            _debts[index] = debt;
+            DebtService.SaveUpdatedDept(_debts); // Persist changes to storage
         }
         FilterTable();
     }
+    
+    private bool IsDebtFormVisible { get; set; } = false; // Form hidden by default
+    private Debt newDebt = new() { Status = "Pending" };
+
+    private void ToggleDebtFormVisibility()
+    {
+        IsDebtFormVisible = !IsDebtFormVisible;
+    }
+
+    private void HandleSubmit()
+    {
+        DebtService.AddDebt(_newDebt);
+        _debts = DebtService.GetDebts(); // Reload debts
+        FilterTable(); // Refresh the filtered list
+        _newDebt = new() { Status = "Pending" }; // Reset form
+    }
+
 }

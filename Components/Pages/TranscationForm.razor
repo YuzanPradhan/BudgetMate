@@ -1,10 +1,24 @@
 ﻿@page "/transcationForm"
 
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <h1 class="sidebar-title">BudgetMate</h1>
+        <ul>
+            <li><a href="/dashboard" > Dashboard</a></li>
+            <li><a href="/transactions">All Transactions</a></li>
+            <li><a href="/transcationForm" class="active"> Add Transaction</a></li>
+            <li><a href="/tags">Manage Tags</a></li>
+            <li><a href="/debts">Manage Debts</a></li>
+        </ul>
+    </nav>
+    <a href="/" class="logout-btn">Logout</a>
+</div>
+
+
 <main class="transaction-form-container">
     <h2>Add Transaction</h2>
 
     <div class="transaction-form">
-        <a href="/dashboard" class="back-button">&#8592; Back</a>
         <form @onsubmit="HandleSubmit">
             <div class="form-group">
                 <label for="amount">Amount</label>
@@ -16,7 +30,7 @@
             </div>
             <div class="form-group transaction-type">
                 <label>Transaction Type</label>
-                <select @bind="transaction.Type" multiple="multiple">
+                <select @bind="transaction.Type" >
                     <option value="----" disabled>Select transaction type</option>
                     <option value="Credit">Credit</option>
                     <option value="Debit">Debit</option>

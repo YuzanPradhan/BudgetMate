@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Components;
 using BudgetMate.Model;
+using Microsoft.JSInterop;
 
 namespace BudgetMate.Components.Pages;
 
@@ -44,7 +47,16 @@ public partial class TranscationPage : ComponentBase
             FilterTransactions();
         }
     }
+    private async Task ExportToJson()
+    {
+        var fileName = "transactions.json";
+        var jsonContent = JsonSerializer.Serialize(FilteredTransactions, new JsonSerializerOptions { WriteIndented = true });
 
+        var byteArray = Encoding.UTF8.GetBytes(jsonContent);
+        var stream = new MemoryStream(byteArray);
+
+        await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/json", stream.ToArray());
+    }   
     private void SaveTransactions()
     {
         TranscationService.SaveTransactions(Transactions);
