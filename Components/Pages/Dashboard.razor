@@ -40,6 +40,45 @@
             <h3>Cleared Debt</h3>
             <div class="amount">@ClearedDebt</div>
         </div>
+        <div class="stat-card total-balance">
+            <h3>Total Balance</h3>
+            <div class="amount">@(TotalCredit + DueDebt - TotalDebit)</div>
+        </div>
+    </div>
+
+    <!-- Debt Table -->
+    <div class="debt-table-section">
+        <h2 class="transaction-table-header">Pending Debts</h2>
+        <table class="transaction-highlight-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Due Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (PendingDebts != null && PendingDebts.Any())
+            {
+                @foreach (var debt in PendingDebts)
+                {
+                    <tr>
+                        <td>@debt.Id</td>
+                        <td>@debt.Amount</td>
+                        <td>@debt.Status</td>
+                        <td>@debt.Date.ToString("yyyy-MM-dd")</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">No pending debts available.</td>
+                </tr>
+            }
+            </tbody>
+        </table>
     </div>
 
     <div class="transaction-highlights">

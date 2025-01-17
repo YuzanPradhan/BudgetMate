@@ -3,7 +3,7 @@ using BudgetMate.Model;
 
 namespace BudgetMate.Components.Pages;
 
-public partial class Tags : ComponentBase
+public partial class CustomTags : ComponentBase
 {
     private List<Tag> Tagss { get; set; }
     private Tag newTag = new();

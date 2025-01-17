@@ -6,7 +6,7 @@ using Microsoft.JSInterop;
 
 namespace BudgetMate.Components.Pages;
 
-public partial class TranscationPage : ComponentBase
+public partial class AllTansactions : ComponentBase
 {
     private string SearchQuery { get; set; } = string.Empty;
     private DateOnly? StartDate { get; set; } = null;
