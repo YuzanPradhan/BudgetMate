@@ -1,42 +1,42 @@
 [
   {
     "Id": 1,
-    "Amount": 500,
+    "Amount": 1500,
     "Date": "2025-01-15",
-    "Lender": "ICELY",
+    "Lender": "Yuzan",
     "Status": "Paid",
-    "Note": "Loan for car repairs"
+    "Note": "Personal loan for car repairs"
   },
   {
     "Id": 2,
-    "Amount": 1000,
+    "Amount": 2000,
     "Date": "2025-01-10",
-    "Lender": "Yuzan",
+    "Lender": "Divya",
     "Status": "Paid",
-    "Note": "Personal loan paid back"
+    "Note": "Loan for home improvement"
   },
   {
     "Id": 3,
-    "Amount": 250,
+    "Amount": 500,
     "Date": "2025-01-20",
     "Lender": "Nishant",
     "Status": "Paid",
-    "Note": "Short-term loan for utilities"
+    "Note": "Loan for monthly groceries"
   },
   {
     "Id": 4,
-    "Amount": 12,
-    "Date": "0001-01-24",
-    "Lender": "goku",
+    "Amount": 1200,
+    "Date": "2025-02-01",
+    "Lender": "Srijan",
     "Status": "Pending",
-    "Note": "test"
+    "Note": "Short-term business loan"
   },
   {
     "Id": 5,
-    "Amount": 0,
-    "Date": "2025-01-17",
-    "Lender": "",
+    "Amount": 3000,
+    "Date": "2025-01-25",
+    "Lender": "Raj",
     "Status": "Pending",
-    "Note": null
+    "Note": "Loan for new car purchase"
   }
 ]

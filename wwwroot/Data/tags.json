@@ -4,11 +4,23 @@
     "Name": "Salary"
   },
   {
-    "Id": 3,
+    "Id": 2,
     "Name": "Groceries"
   },
   {
+    "Id": 3,
+    "Name": "Utilities"
+  },
+  {
     "Id": 4,
-    "Name": "yv"
+    "Name": "Water"
+  },
+  {
+    "Id": 5,
+    "Name": "Electricity"
+  },
+  {
+    "Id": 6,
+    "Name": "Personal Expenses"
   }
 ]
